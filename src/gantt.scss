@@ -166,6 +166,9 @@ $handle-color: #ddd !default;
         }
 
         .nav1 {
+            &:hover {
+                text-decoration: underline;
+            }
             cursor: 'pointer';
             padding-left: 10px;
             padding-right: 10px;
@@ -174,6 +177,9 @@ $handle-color: #ddd !default;
         }
 
         .nav2 {
+            &:hover {
+                text-decoration: underline;
+            }
             cursor: 'pointer';
             padding-left: 10px;
             padding-right: 10px;
