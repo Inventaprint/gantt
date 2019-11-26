@@ -14,8 +14,8 @@ export default class Popup {
             <div class="title"></div>
             <div class="subtitle"></div>
             <div class="metadata"></div>
-            <div class="nav1"></div>
-            <div class="nav2"></div>
+            <div class="nav1">View RFP</div>
+            <div class="nav2">View Order</div>
             <div class="pointer"></div>
         `;
 
@@ -64,12 +64,11 @@ export default class Popup {
 
             this.title.innerHTML = options.title;
             this.subtitle.innerHTML = options.subtitle;
-            this.metadata.innerHTML = options.metadata;
 
-            this.nav1.innerHTML = options.nav1;
+            this.metadata.innerHTML = options.metadata.dateOrdered;
+
             this.nav1.onclick = navToRFP;
 
-            this.nav2.innerHTML = options.nav2;
             this.nav2.onclick = navToOrder;
 
             this.parent.style.width = this.parent.clientWidth + 'px';
