@@ -65,7 +65,7 @@ export default class Popup {
             this.title.innerHTML = options.title;
             this.subtitle.innerHTML = options.subtitle;
 
-            this.metadata.innerHTML = options.metadata.dateOrdered;
+            this.metadata.innerHTML = options.task.metadata.dateOrdered;
 
             this.nav1.onclick = navToRFP;
 
