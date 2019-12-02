@@ -2,6 +2,16 @@ const slugify = require('slugify');
 
 const slugifyPath = path => slugify(path.toLowerCase(), '-');
 
+const statusPrettier = {
+    WAITING_FOR_QUOTE: 'Pending',
+    PROPOSED: 'Proposed',
+    EXPIRED: 'Expired',
+    IN_PROCESS: 'In Process',
+    SHIPPED: 'Shipped',
+    DELIVERED: 'Delivered',
+    REORDER_REQUEST: 'Pending Reorder'
+};
+
 export default class Popup {
     constructor(parent, custom_html) {
         this.parent = parent;
@@ -12,8 +22,12 @@ export default class Popup {
     make() {
         this.parent.innerHTML = `
             <div class="title"></div>
+            <div class="status"></div>
             <div class="subtitle"></div>
-            <div class="metadata"></div>
+            <div class="dateOrdered"></div>
+            <div class="leadTime"></div>
+            <div class="estShipmentDate"></div>
+            <div class="dateShipped"></div>
             <div class="nav1">View RFP</div>
             <div class="nav2">View Order</div>
             <div class="pointer"></div>
@@ -22,8 +36,12 @@ export default class Popup {
         this.hide();
 
         this.title = this.parent.querySelector('.title');
+        this.status = this.parent.querySelector('.status');
         this.subtitle = this.parent.querySelector('.subtitle');
-        this.metadata = this.parent.querySelector('.metadata');
+        this.dateOrdered = this.parent.querySelector('.dateOrdered');
+        this.leadTime = this.parent.querySelector('.leadTime');
+        this.estShipmentDate = this.parent.querySelector('.estShipmentDate');
+        this.dateShipped = this.parent.querySelector('.dateShipped');
         this.nav1 = this.parent.querySelector('.nav1');
         this.nav2 = this.parent.querySelector('.nav2');
         this.pointer = this.parent.querySelector('.pointer');
@@ -63,9 +81,15 @@ export default class Popup {
                 });
 
             this.title.innerHTML = options.title;
+            this.status.innerHTML =
+                statusPrettier[options.task.metadata.status];
             this.subtitle.innerHTML = options.subtitle;
 
-            this.metadata.innerHTML = options.task.metadata.dateOrdered;
+            this.dateOrdered.innerHTML = options.task.metadata.dateOrdered;
+            this.leadTime.innerHTML = options.task.metadata.leadTime;
+            this.estShipmentDate.innerHTML =
+                options.task.metadata.estShipmentDate;
+            this.dateShipped.innerHTML = options.task.metadata.dateShipped;
 
             this.nav1.onclick = navToRFP;
 

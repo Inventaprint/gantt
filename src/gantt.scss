@@ -147,18 +147,49 @@ $handle-color: #ddd !default;
         padding: 0;
         color: #959da5;
         border-radius: 3px;
+        width: 200px;
 
         .title {
             border-bottom: 3px solid $blue;
             padding: 10px;
         }
 
-        .subtitle {
+        .status {
             padding: 10px;
+            font-style: italic;
+            text-transform: uppercase;
             color: #dfe2e5;
         }
 
-        .metadata {
+        .subtitle {
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-bottom: 10px;
+            color: #dfe2e5;
+        }
+
+        .dateOrdered {
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-bottom: 10px;
+            color: #dfe2e5;
+        }
+
+        .leadTime {
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-bottom: 10px;
+            color: #dfe2e5;
+        }
+
+        .estShipmentDate {
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-bottom: 10px;
+            color: #dfe2e5;
+        }
+
+        .dateShipped {
             padding-left: 10px;
             padding-right: 10px;
             padding-bottom: 10px;
@@ -169,7 +200,7 @@ $handle-color: #ddd !default;
             &:hover {
                 text-decoration: underline;
             }
-            cursor: 'pointer';
+            cursor: pointer;
             padding-left: 10px;
             padding-right: 10px;
             padding-bottom: 10px;
@@ -180,7 +211,7 @@ $handle-color: #ddd !default;
             &:hover {
                 text-decoration: underline;
             }
-            cursor: 'pointer';
+            cursor: pointer;
             padding-left: 10px;
             padding-right: 10px;
             padding-bottom: 10px;
