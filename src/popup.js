@@ -79,7 +79,7 @@ export default class Popup {
             this.subtitle.innerHTML = options.subtitle;
 
             this.dateOrdered.innerHTML = options.task.metadata.dateOrdered;
-            this.leadTime.innerHTML = options.task.metadata.leadTime;
+            this.shipBy.innerHTML = options.task.metadata.shipBy;
             this.estShipmentDate.innerHTML =
                 options.task.metadata.estShipmentDate;
             this.dateShipped.innerHTML = options.task.metadata.dateShipped;
