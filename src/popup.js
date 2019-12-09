@@ -25,11 +25,10 @@ export default class Popup {
             <div class="status"></div>
             <div class="subtitle"></div>
             <div class="dateOrdered"></div>
-            <div class="leadTime"></div>
             <div class="estShipmentDate"></div>
+            <div class="shipBy"></div>
             <div class="dateShipped"></div>
-            <div class="nav1">View RFP</div>
-            <div class="nav2">View Order</div>
+            <div class="nav">View Order</div>
             <div class="pointer"></div>
         `;
 
@@ -39,11 +38,10 @@ export default class Popup {
         this.status = this.parent.querySelector('.status');
         this.subtitle = this.parent.querySelector('.subtitle');
         this.dateOrdered = this.parent.querySelector('.dateOrdered');
-        this.leadTime = this.parent.querySelector('.leadTime');
         this.estShipmentDate = this.parent.querySelector('.estShipmentDate');
+        this.shipBy = this.parent.querySelector('.shipBy');
         this.dateShipped = this.parent.querySelector('.dateShipped');
-        this.nav1 = this.parent.querySelector('.nav1');
-        this.nav2 = this.parent.querySelector('.nav2');
+        this.nav = this.parent.querySelector('.nav');
         this.pointer = this.parent.querySelector('.pointer');
     }
 
@@ -63,21 +61,11 @@ export default class Popup {
             this.pointer = this.parent.querySelector('.pointer');
         } else {
             // set data
-            const navToRFP = () =>
-                options.task.history.replace({
-                    pathname: `/innovator/${slugifyPath(
-                        options.task.nav1.projectName
-                    )}/${options.task.nav1.projectId}/${slugifyPath(
-                        options.task.nav1.componentName
-                    )}/${options.task.nav1.componentId}`,
-                    search: `?r=${options.task.nav1.proposalId}`,
-                    state: { rFP: options.task.nav1.proposalId }
-                });
 
             const navToOrder = () =>
                 options.task.history.replace({
-                    pathname: `/innovator/orders`,
-                    search: `?r=${options.task.nav2.orderId}`
+                    pathname: `/mfg/rfp`,
+                    search: `?r=${options.task.nav.orderId}`
                 });
 
             this.title.innerHTML = options.title;
@@ -96,9 +84,7 @@ export default class Popup {
                 options.task.metadata.estShipmentDate;
             this.dateShipped.innerHTML = options.task.metadata.dateShipped;
 
-            this.nav1.onclick = navToRFP;
-
-            this.nav2.onclick = navToOrder;
+            this.nav.onclick = navToOrder;
 
             this.parent.style.width = this.parent.clientWidth + 'px';
         }

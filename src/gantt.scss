@@ -177,14 +177,14 @@ $handle-color: #ddd !default;
             color: #dfe2e5;
         }
 
-        .leadTime {
+        .estShipmentDate {
             padding-left: 10px;
             padding-right: 10px;
             padding-bottom: 10px;
             color: #dfe2e5;
         }
 
-        .estShipmentDate {
+        .shipBy {
             padding-left: 10px;
             padding-right: 10px;
             padding-bottom: 10px;
@@ -198,18 +198,7 @@ $handle-color: #ddd !default;
             color: #dfe2e5;
         }
 
-        .nav1 {
-            &:hover {
-                text-decoration: underline;
-            }
-            cursor: pointer;
-            padding-left: 10px;
-            padding-right: 10px;
-            padding-bottom: 10px;
-            color: #00b5ad;
-        }
-
-        .nav2 {
+        .nav {
             &:hover {
                 text-decoration: underline;
             }
