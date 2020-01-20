@@ -73,9 +73,9 @@ export default class Popup {
             this.status.innerHTML =
                 statusPrettier[options.task.metadata.status];
             options.task.metadata.status === 'IN_PROCESS'
-                ? (this.status.style.background = '#279327')
+                ? (this.status.style.color = '#279327')
                 : options.task.metadata.status === 'SHIPPED' &&
-                  (this.status.style.background = '#A333C8');
+                  (this.status.style.color = '#A333C8');
 
             this.subtitle.innerHTML = options.subtitle;
 

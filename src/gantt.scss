@@ -157,10 +157,10 @@ $handle-color: #ddd !default;
 
         .status {
             padding: 10px;
-            font-weight: 500;
-            transform: skewX(-20deg);
+            font-style: italic;
+            font-weight: 600;
             text-transform: uppercase;
-            color: #fff;
+            color: #dfe2e5;
         }
 
         .subtitle {
