@@ -77,7 +77,8 @@ export default class Popup {
             const navToOrder = () =>
                 options.task.history.replace({
                     pathname: `/innovator/orders`,
-                    search: `?r=${options.task.nav2.orderId}`
+                    search: `?r=${options.task.nav2.orderId}`,
+                    state: { order: options.task.nav2.orderId }
                 });
 
             this.title.innerHTML = options.title;
