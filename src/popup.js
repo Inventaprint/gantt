@@ -62,19 +62,20 @@ export default class Popup {
         } else {
             // set data
 
-            const navToOrder = () =>
-                options.task.history.replace({
-                    pathname: `/mfg/rfp`,
-                    search: `?r=${options.task.nav.orderId}`
-                });
+            const navToOrder = () => s;
+            options.task.history.replace({
+                pathname: `/mfg/connection/all`,
+                search: `?r=${options.task.nav.orderId}`,
+                state: { rFP: options.task.nav.orderId }
+            });
 
             this.title.innerHTML = options.title;
             this.status.innerHTML =
                 statusPrettier[options.task.metadata.status];
             options.task.metadata.status === 'IN_PROCESS'
-                ? (this.status.style.color = '#279327')
+                ? (this.status.style.background = '#279327')
                 : options.task.metadata.status === 'SHIPPED' &&
-                  (this.status.style.color = '#A333C8');
+                  (this.status.style.background = '#A333C8');
 
             this.subtitle.innerHTML = options.subtitle;
 
