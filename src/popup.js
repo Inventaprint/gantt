@@ -64,11 +64,7 @@ export default class Popup {
             // set data
 
             const navToOrder = () =>
-                options.task.history.replace({
-                    pathname: `/mfg/connection/all`,
-                    search: `?r=${options.task.nav.orderId}`,
-                    state: { rFP: options.task.nav.orderId },
-                });
+                options.task.openPane(options.task.nav.orderId);
 
             this.title.innerHTML = options.title;
             this.status.innerHTML =
@@ -86,7 +82,7 @@ export default class Popup {
                 options.task.metadata.estShipmentDate;
             this.dateShipped.innerHTML = options.task.metadata.dateShipped;
 
-            this.nav.onclick = options.task.openPane();
+            this.nav.onclick = navToOrder;
 
             this.parent.style.width = this.parent.clientWidth + 'px';
         }
