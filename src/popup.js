@@ -1,6 +1,6 @@
 const slugify = require('slugify');
 
-const slugifyPath = path => slugify(path.toLowerCase(), '-');
+const slugifyPath = (path) => slugify(path.toLowerCase(), '-');
 
 const statusPrettier = {
     WAITING_FOR_QUOTE: 'Pending',
@@ -9,7 +9,8 @@ const statusPrettier = {
     IN_PROCESS: 'In Process',
     SHIPPED: 'Shipped',
     DELIVERED: 'Delivered',
-    REORDER_REQUEST: 'Pending Reorder'
+    REORDER_REQUEST: 'Pending Reorder',
+    NO_QUOTE: 'No Quote',
 };
 
 export default class Popup {
@@ -66,7 +67,7 @@ export default class Popup {
                 options.task.history.replace({
                     pathname: `/mfg/connection/all`,
                     search: `?r=${options.task.nav.orderId}`,
-                    state: { rFP: options.task.nav.orderId }
+                    state: { rFP: options.task.nav.orderId },
                 });
 
             this.title.innerHTML = options.title;
@@ -85,7 +86,7 @@ export default class Popup {
                 options.task.metadata.estShipmentDate;
             this.dateShipped.innerHTML = options.task.metadata.dateShipped;
 
-            this.nav.onclick = navToOrder;
+            this.nav.onclick = options.task.openPane();
 
             this.parent.style.width = this.parent.clientWidth + 'px';
         }
