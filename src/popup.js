@@ -63,13 +63,6 @@ export default class Popup {
         } else {
             // set data
 
-            const navToOrder = () =>
-                options.task.history.replace({
-                    pathname: `/mfg/connection/all`,
-                    search: `?r=${options.task.nav.orderId}`,
-                    state: { rFP: options.task.nav.orderId },
-                });
-
             this.title.innerHTML = options.title;
             this.status.innerHTML =
                 statusPrettier[options.task.metadata.status];
